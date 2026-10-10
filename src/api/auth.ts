@@ -1,4 +1,4 @@
-import { API_URL } from './config';
+import { request, UnauthorizedError } from './client';
 import type { LoginCredentials, LoginResponse } from '../types/auth';
 
 export class InvalidCredentialsError extends Error {
@@ -11,18 +11,13 @@ export class InvalidCredentialsError extends Error {
 export async function login(
   credentials: LoginCredentials
 ): Promise<LoginResponse> {
-  const response = await fetch(`${API_URL}/login`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(credentials),
-  });
-
-  if (response.status === 401) {
-    throw new InvalidCredentialsError();
+  try {
+    return await request<LoginResponse>('/login', {
+      method: 'POST',
+      body: credentials,
+    });
+  } catch (error) {
+    if (error instanceof UnauthorizedError) throw new InvalidCredentialsError();
+    throw error;
   }
-  if (!response.ok) {
-    throw new Error(`Login failed with status ${response.status}`);
-  }
-
-  return (await response.json()) as LoginResponse;
 }

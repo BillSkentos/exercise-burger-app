@@ -2,8 +2,8 @@ import { useState, type ChangeEvent, type SubmitEvent } from 'react';
 import { InvalidCredentialsError, login } from '../../api/auth';
 import type { LoginCredentials } from '../../types/auth';
 import { useSession } from './useSession';
-import { Button } from '../../components/Button/Button';
-import { BurgerHero } from '../../components/BurgerHero/BurgerHero';
+import { Button } from '../../components/Button';
+import { BurgerHero } from '../../components/BurgerHero';
 import { AlertIcon, EyeIcon, EyeOffIcon } from '../../components/icons';
 import './LoginPage.css';
 

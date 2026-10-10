@@ -1,0 +1,77 @@
+.ingredient-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 68px;
+  padding: 10px 12px;
+  text-align: left;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-card);
+  transition:
+    border-color 0.15s,
+    transform 0.12s,
+    box-shadow 0.15s;
+}
+
+.ingredient-card:hover {
+  border-color: var(--purple);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+
+.ingredient-card:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.ingredient-card:focus-visible {
+  outline: 3px solid rgba(107, 63, 160, 0.45);
+  outline-offset: 2px;
+}
+
+.ingredient-card__thumb {
+  flex: none;
+  width: 64px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--yellow-pale);
+  border-radius: 8px;
+}
+
+.ingredient-card__thumb img {
+  padding: 2px;
+  width: 56px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.ingredient-card__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ingredient-card__name {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.ingredient-card__src {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.ingredient-card__plus {
+  flex: none;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+
+.ingredient-card:hover .ingredient-card__plus {
+  color: var(--purple);
+}

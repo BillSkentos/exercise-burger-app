@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router';
 import { LoginPage } from '../features/auth/LoginPage';
-import { BuilderPage } from '../features/builder/BuilderPage';
+import { BurgerBuilderPage } from '../features/burgerBuilder/BurgerBuilderPage';
 import { SuccessPage } from '../features/order/SuccessPage';
 import { ProtectedRoute } from './ProtectedRoute';
 import { PublicOnlyRoute } from './PublicOnlyRoute';
@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
   {
     element: <ProtectedRoute />,
     children: [
-      { path: '/', element: <BuilderPage /> },
+      { path: '/', element: <BurgerBuilderPage /> },
       { path: '/success', element: <SuccessPage /> },
     ],
   },

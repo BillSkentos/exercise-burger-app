@@ -1,0 +1,30 @@
+.burger-builder {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.burger-builder__ingredients {
+  flex: 1 1 340px;
+  min-width: 0;
+}
+
+.burger-builder__burger {
+  flex: 999 1 520px;
+  min-width: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .burger-builder {
+    padding: 20px 16px;
+  }
+
+  .burger-builder__burger {
+    order: -1;
+  }
+}

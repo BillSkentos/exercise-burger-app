@@ -41,3 +41,13 @@
 .btn--full {
   width: 100%;
 }
+
+.btn--ghost {
+  background: var(--surface);
+  border-color: var(--border-input);
+  color: var(--ink);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  border-color: var(--ink);
+}

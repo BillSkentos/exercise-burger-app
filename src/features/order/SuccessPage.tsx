@@ -1,5 +1,5 @@
 import { Navigate, useLocation, useNavigate } from 'react-router';
-import { Button } from '../../components/Button/Button';
+import { Button } from '../../components/Button';
 import { isPurchaseState } from './purchase';
 
 export function SuccessPage() {

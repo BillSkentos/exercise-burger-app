@@ -1,0 +1,33 @@
+.ingredient-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ingredient-list__title {
+  margin-bottom: 4px;
+  font-size: 22px;
+}
+
+.ingredient-list__hint {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.ingredient-list__items {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+.ingredient-list__error {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-card);
+  background: var(--error-bg);
+  color: var(--error-text);
+  font-size: 14px;
+}
