@@ -9,10 +9,24 @@
   border: 1.5px solid transparent;
   font-weight: 600;
   font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
   transition:
     background 0.15s,
     border-color 0.15s,
     transform 0.1s;
+}
+
+.btn svg {
+  display: block;
+  flex: none;
+}
+
+/* Trim the label's box to the letters themselves (cap height to baseline),
+   so it centres optically with the icon. Archivo has more space above its
+   letters than below, which otherwise makes the text sit low. */
+.btn > span {
+  text-box: trim-both cap alphabetic;
 }
 
 .btn:active:not(:disabled) {

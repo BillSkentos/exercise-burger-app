@@ -6,9 +6,15 @@ import { BurgerLayer } from './BurgerLayer';
 import './BurgerPreview.css';
 
 interface BurgerPreviewProps {
+  /** Fillings, oldest first; the last one is drawn just under the top bun */
   layers: BurgerLayerData[];
-  initialUids: Set<string>;
-  onRemove: (uid: string) => void;
+  /** Layers that were already there on mount, so they don't animate */
+  initialUids?: Set<string>;
+  /**
+   * Makes each layer removable by clicking it. Without it the preview is
+   * view-only: plain images, no animation and no yellow stage around them.
+   */
+  onRemove?: (uid: string) => void;
 }
 
 export function BurgerPreview({
@@ -16,8 +22,12 @@ export function BurgerPreview({
   initialUids,
   onRemove,
 }: BurgerPreviewProps) {
+  const viewOnly = !onRemove;
+
   return (
-    <div className="burger-preview">
+    <div
+      className={`burger-preview${viewOnly ? ' burger-preview--view-only' : ''}`}
+    >
       <div className="burger-preview__stack">
         <img
           className="burger-preview__bun burger-preview__bun--top"
@@ -27,14 +37,14 @@ export function BurgerPreview({
         />
 
         {layers.length === 0 && (
-          <div className="burger-preview__empty">Add ingredients to start</div>
+          <div className="burger-preview__empty">Add ingredients</div>
         )}
         <ol className="burger-preview__layers">
           {layers.map((layer) => (
             <BurgerLayer
               key={layer.uid}
               layer={layer}
-              animate={!initialUids.has(layer.uid)}
+              animate={!viewOnly && !initialUids?.has(layer.uid)}
               onRemove={onRemove}
             />
           ))}

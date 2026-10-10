@@ -77,4 +77,26 @@
   .burger-preview {
     min-height: 200px;
   }
+
+  .burger-preview__empty {
+    height: 32px;
+    margin: 4px 0 2px;
+    padding: 0 6px;
+    border-width: 1.5px;
+    border-radius: 8px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+}
+
+/* View-only: just the burger, no stage around it (e.g. on the success page).
+   The parent decides the size by setting the stack's width. */
+.burger-preview--view-only {
+  min-height: 0;
+  padding: 0;
+  background: none;
+}
+
+.burger-preview--view-only .burger-preview__stack {
+  max-width: 100%;
 }

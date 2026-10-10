@@ -1,0 +1,100 @@
+/* Fills the space under the nav bar with the yellow background */
+.success {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 56px 16px;
+  text-align: center;
+  background: var(--yellow);
+}
+
+/* The bought burger scales with the screen between 160px and 280px.
+   Its height and overlaps follow the width, so it keeps its shape. */
+.success .burger-preview__stack {
+  width: clamp(160px, 60vw, 280px);
+}
+
+.success__message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.success__check {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.success__title {
+  font-size: 36px;
+}
+
+.success__subtitle {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.success__again {
+  height: 48px;
+  padding: 0 28px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .success {
+    gap: 20px;
+    padding: 40px 16px;
+  }
+
+  .success__title {
+    font-size: 28px;
+  }
+
+  .success__subtitle {
+    font-size: 15px;
+  }
+}
+
+/* Narrow phones */
+@media screen and (max-width: 480px) {
+  .success {
+    gap: 16px;
+    padding: 32px 16px;
+  }
+
+  .success__check {
+    width: 36px;
+    height: 36px;
+  }
+
+  .success__check svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .success__title {
+    font-size: 24px;
+  }
+
+  .success__subtitle {
+    font-size: 14px;
+  }
+
+  /* Full-width button is easier to tap with a thumb */
+  .success__again {
+    width: 100%;
+    max-width: 320px;
+    height: 44px;
+    font-size: 15px;
+  }
+}

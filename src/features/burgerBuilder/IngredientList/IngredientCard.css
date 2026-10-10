@@ -15,13 +15,13 @@
     box-shadow 0.15s;
 }
 
-.ingredient-card:hover {
+.ingredient-card:hover:not(:disabled) {
   border-color: var(--purple);
   transform: translateY(-1px);
   box-shadow: var(--shadow-hover);
 }
 
-.ingredient-card:active {
+.ingredient-card:active:not(:disabled) {
   transform: translateY(0) scale(0.98);
 }
 
@@ -72,6 +72,11 @@
   transition: color 0.15s;
 }
 
-.ingredient-card:hover .ingredient-card__plus {
+.ingredient-card:hover:not(:disabled) .ingredient-card__plus {
   color: var(--purple);
+}
+
+.ingredient-card:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

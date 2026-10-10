@@ -1,6 +1,6 @@
 import { Skeleton } from '../../../components/Skeleton';
 import type { Ingredient } from '../../../types/ingredient';
-import { useBurger } from '../useBurger';
+import { MAX_LAYERS, useBurger } from '../useBurger';
 import { useIngredients, type IngredientsStatus } from '../useIngredients';
 import { IngredientCard } from './IngredientCard';
 import './IngredientList.css';
@@ -11,6 +11,8 @@ interface IngredientListViewProps {
   ingredients: Ingredient[];
   status: IngredientsStatus;
   countById: Record<number, number>;
+  /** Burger has MAX_LAYERS fillings: cards are disabled */
+  isFull: boolean;
   onAdd: (ingredient: Ingredient) => void;
 }
 
@@ -18,6 +20,7 @@ export function IngredientList({
   ingredients,
   status,
   countById,
+  isFull,
   onAdd,
 }: IngredientListViewProps) {
   return (
@@ -25,7 +28,8 @@ export function IngredientList({
       <div>
         <h2 className="display ingredient-list__title">Ingredients</h2>
         <p className="ingredient-list__hint">
-          Click an ingredient to add it on top. Add as many as you like.
+          Click an ingredient to add it on top. Up to {MAX_LAYERS} layers per
+          burger.
         </p>
       </div>
 
@@ -50,6 +54,7 @@ export function IngredientList({
               key={ingredient.id}
               ingredient={ingredient}
               count={countById[ingredient.id] ?? 0}
+              disabled={isFull}
               onAdd={onAdd}
             />
           ))}
@@ -61,13 +66,14 @@ export function IngredientList({
 
 export default function IngredientListConnected() {
   const { ingredients, status } = useIngredients();
-  const { addLayer, countById } = useBurger();
+  const { addLayer, countById, isFull } = useBurger();
 
   return (
     <IngredientList
       ingredients={ingredients}
       status={status}
       countById={countById}
+      isFull={isFull}
       onAdd={addLayer}
     />
   );

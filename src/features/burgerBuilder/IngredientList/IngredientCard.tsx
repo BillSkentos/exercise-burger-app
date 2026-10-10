@@ -8,18 +8,21 @@ import './IngredientCard.css';
 interface IngredientCardProps {
   ingredient: Ingredient;
   count: number;
+  disabled: boolean;
   onAdd: (ingredient: Ingredient) => void;
 }
 
 export function IngredientCard({
   ingredient,
   count,
+  disabled,
   onAdd,
 }: IngredientCardProps) {
   return (
     <button
       type="button"
       className="ingredient-card"
+      disabled={disabled}
       onClick={() => onAdd(ingredient)}
     >
       <span className="ingredient-card__thumb">

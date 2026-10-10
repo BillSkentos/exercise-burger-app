@@ -1,0 +1,76 @@
+.burger-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+}
+
+.burger-panel__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.burger-panel__title {
+  margin-bottom: 2px;
+  font-size: 22px;
+}
+
+.burger-panel__summary {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.burger-panel__summary--full {
+  color: var(--purple);
+  font-weight: 800;
+}
+
+.burger-panel__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.burger-panel__action {
+  min-height: 36px;
+  font-size: 14px;
+}
+
+.burger-panel__buy {
+  height: 52px;
+  font-size: 16px;
+}
+
+.burger-panel__hint {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media screen and (max-width: 767px) {
+  .burger-panel {
+    padding: 16px;
+  }
+
+  .burger-panel__actions {
+    gap: 6px;
+  }
+
+  .burger-panel__action {
+    min-height: 32px;
+    height: 32px;
+    padding: 0 10px;
+    gap: 6px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+
+  .burger-panel__action svg {
+    width: 14px;
+    height: 14px;
+  }
+}

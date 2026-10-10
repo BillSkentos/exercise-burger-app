@@ -5,6 +5,9 @@ import { getBurgerSummary } from './utils';
 
 const STORAGE_KEY = 'burger-builder.burger';
 
+/** Most fillings a burger can hold (buns not included) */
+export const MAX_LAYERS = 6;
+
 const EMPTY_BURGER: BurgerLayer[] = [];
 
 export function useBurger() {
@@ -20,7 +23,10 @@ export function useBurger() {
       name,
       src,
     };
-    setLayers((current) => [...current, layer]);
+    // Ignore adds past the limit, even if a caller forgets to check isFull
+    setLayers((current) =>
+      current.length >= MAX_LAYERS ? current : [...current, layer]
+    );
   }
 
   function removeLayer(uid: string) {
@@ -45,6 +51,7 @@ export function useBurger() {
   return {
     layers,
     count,
+    isFull: count >= MAX_LAYERS,
     countById,
     summary: getBurgerSummary(layers, countById),
     addLayer,

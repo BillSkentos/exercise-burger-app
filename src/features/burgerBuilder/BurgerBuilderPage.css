@@ -17,9 +17,6 @@
 .burger-builder__burger {
   flex: 999 1 520px;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 @media screen and (max-width: 900px) {
