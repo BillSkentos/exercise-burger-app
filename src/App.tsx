@@ -1,18 +1,8 @@
-import { useState } from 'react';
-import { LoginPage } from './features/auth/LoginPage';
+import { RouterProvider } from 'react-router';
+import { router } from './routes/router';
 
 function App() {
-  const [token, setToken] = useState<string | null>(null);
-
-  if (!token) {
-    return <LoginPage onLogin={setToken} />;
-  }
-
-  return (
-    <main>
-      <h1 className="display">Signed in</h1>
-    </main>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

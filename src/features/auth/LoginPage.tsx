@@ -1,16 +1,14 @@
 import { useState, type ChangeEvent, type SubmitEvent } from 'react';
 import { InvalidCredentialsError, login } from '../../api/auth';
 import type { LoginCredentials } from '../../types/auth';
+import { useSession } from './useSession';
 import { Button } from '../../components/Button/Button';
 import { BurgerHero } from '../../components/BurgerHero/BurgerHero';
 import { AlertIcon, EyeIcon, EyeOffIcon } from '../../components/icons';
 import './LoginPage.css';
 
-interface LoginPageProps {
-  onLogin: (token: string) => void;
-}
-
-export function LoginPage({ onLogin }: LoginPageProps) {
+export function LoginPage() {
+  const { startSession } = useSession();
   const [credentials, setCredentials] = useState<LoginCredentials>({
     username: '',
     password: '',
@@ -34,8 +32,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
     setSubmitting(true);
     try {
-      const { token } = await login({ username: trimmedUsername, password });
-      onLogin(token);
+      const response = await login({ username: trimmedUsername, password });
+      startSession(response);
     } catch (error) {
       setFormError(
         error instanceof InvalidCredentialsError
