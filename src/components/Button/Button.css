@@ -51,3 +51,14 @@
 .btn--ghost:hover:not(:disabled) {
   border-color: var(--ink);
 }
+
+.btn--on-dark {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+}
+
+.btn--on-dark:hover:not(:disabled) {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}

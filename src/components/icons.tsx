@@ -59,3 +59,32 @@ export function PlusIcon(props: IconProps) {
     </Icon>
   );
 }
+
+export function ClockIcon(props: IconProps) {
+  return (
+    <Icon strokeWidth={2.2} {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </Icon>
+  );
+}
+
+export function LogoutIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3" />
+      <path d="M10 17l-5-5 5-5" />
+      <path d="M5 12h11" />
+    </Icon>
+  );
+}
+
+export function BurgerIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M4 10.5a8 6 0 0 1 16 0z" />
+      <path d="M3 14h18" />
+      <path d="M4.5 17.5h15a2.5 2.5 0 0 1-2.5 2.5H7a2.5 2.5 0 0 1-2.5-2.5z" />
+    </Icon>
+  );
+}

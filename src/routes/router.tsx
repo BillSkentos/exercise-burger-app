@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router';
 import { LoginPage } from '../features/auth/LoginPage';
 import { BurgerBuilderPage } from '../features/burgerBuilder/BurgerBuilderPage';
 import { SuccessPage } from '../features/order/SuccessPage';
+import { AppLayout } from '../layout';
 import { ProtectedRoute } from './ProtectedRoute';
 import { PublicOnlyRoute } from './PublicOnlyRoute';
 
@@ -13,8 +14,13 @@ export const router = createBrowserRouter([
   {
     element: <ProtectedRoute />,
     children: [
-      { path: '/', element: <BurgerBuilderPage /> },
-      { path: '/success', element: <SuccessPage /> },
+      {
+        element: <AppLayout />,
+        children: [
+          { path: '/', element: <BurgerBuilderPage /> },
+          { path: '/success', element: <SuccessPage /> },
+        ],
+      },
     ],
   },
   { path: '*', element: <Navigate to="/" replace /> },
