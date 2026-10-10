@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import { Button } from '../../components/Button';
 import type { PurchaseState } from '../order/purchase';
+import BurgerPreviewConnected from './BurgerPreview';
 import IngredientListConnected from './IngredientList';
 import './BurgerBuilderPage.css';
 
@@ -19,6 +20,7 @@ export function BurgerBuilderPage() {
       </div>
 
       <div className="burger-builder__burger">
+        <BurgerPreviewConnected />
         <Button onClick={handleBuy}>Buy burger</Button>
       </div>
     </main>

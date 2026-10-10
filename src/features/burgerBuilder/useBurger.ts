@@ -5,7 +5,6 @@ import { getBurgerSummary } from './utils';
 
 const STORAGE_KEY = 'burger-builder.burger';
 
-// Shared so usehooks-ts sees the same initial value on every render
 const EMPTY_BURGER: BurgerLayer[] = [];
 
 export function useBurger() {

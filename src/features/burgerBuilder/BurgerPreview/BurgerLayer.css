@@ -1,0 +1,76 @@
+.burger-layer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.burger-layer__button {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transition: transform 0.15s;
+}
+
+.burger-layer__image {
+  height: auto;
+  pointer-events: none;
+  transition: filter 0.15s;
+}
+
+.burger-layer__button:hover,
+.burger-layer__button:focus-visible {
+  transform: translateY(-4px);
+  outline: none;
+}
+
+.burger-layer__button:hover .burger-layer__image,
+.burger-layer__button:focus-visible .burger-layer__image {
+  filter: brightness(1.08) saturate(1.1);
+}
+
+.burger-layer__remove {
+  position: absolute;
+  top: 50%;
+  right: -46px;
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #ffffff;
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 0.15s,
+    transform 0.15s;
+  pointer-events: none;
+}
+
+.burger-layer__button:hover .burger-layer__remove,
+.burger-layer__button:focus-visible .burger-layer__remove {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.burger-layer__button--new {
+  animation: burger-layer-drop 0.35s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+
+@keyframes burger-layer-drop {
+  from {
+    transform: translateY(-36px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

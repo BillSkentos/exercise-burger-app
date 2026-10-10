@@ -88,3 +88,12 @@ export function BurgerIcon(props: IconProps) {
     </Icon>
   );
 }
+
+export function XIcon(props: IconProps) {
+  return (
+    <Icon strokeWidth={3} {...props}>
+      <path d="M6 6l12 12" />
+      <path d="M18 6L6 18" />
+    </Icon>
+  );
+}
